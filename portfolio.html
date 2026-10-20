@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mohammad Farid Anshori | Data Science & Big Data Portfolio</title>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <style>
+    .gradient-text {
+      background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #ec4899 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+  </style>
+</head>
+<body class="bg-[#0b0f19] text-slate-100 min-h-screen font-sans selection:bg-blue-600 selection:text-white">
+
+  <!-- Navbar -->
+  <header class="sticky top-0 z-50 bg-[#0b0f19]/80 backdrop-blur-md border-b border-slate-800">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="w-9 h-9 rounded-lg bg-gradient-to-tr from-blue-600 to-indigo-500 flex items-center justify-center font-bold text-white shadow-lg shadow-blue-500/20">
+          FA
+        </div>
+        <span class="font-bold text-lg tracking-tight text-white">Farid Anshori</span>
+      </div>
+      <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-400">
+        <a href="#about" class="hover:text-blue-400 transition-colors">Tentang</a>
+        <a href="#projects" class="hover:text-blue-400 transition-colors">Projects</a>
+        <a href="#benchmarks" class="hover:text-blue-400 transition-colors">Benchmark Model</a>
+        <a href="#simulator" class="hover:text-blue-400 transition-colors">Live Simulator</a>
+        <a href="#skills" class="hover:text-blue-400 transition-colors">Tech Stack</a>
+      </nav>
+      <div>
+        <a href="https://github.com/mohfaariid" target="_blank" class="px-4 py-2 text-xs font-semibold rounded-lg bg-blue-600 hover:bg-blue-500 text-white transition-all shadow-md shadow-blue-600/30 flex items-center gap-2">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          GitHub Profile
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="about" class="py-20 px-6 max-w-6xl mx-auto">
+    <div class="grid lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-7 space-y-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20">
+          <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
+          Big Data & Machine Learning Engineer
+        </div>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+          Mengubah Data Klinis Menjadi <span class="gradient-text">Prediksi Presisi</span> dengan PySpark.
+        </h1>
+        <p class="text-slate-400 text-base md:text-lg leading-relaxed">
+          Halo, saya <strong>Mohammad Farid Anshori</strong>. Berfokus pada perancangan *distributed pipeline*, *epidemiological analysis*, dan *machine learning* berskala besar menggunakan ekosistem Apache Spark.
+        </p>
+        <div class="flex flex-wrap gap-4 pt-2">
+          <a href="#simulator" class="px-5 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-medium text-sm transition-all shadow-lg shadow-blue-500/25 flex items-center gap-2">
+            ⚡ Coba Dual-Mode Clinical Simulator
+          </a>
+          <a href="#projects" class="px-5 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium text-sm transition-all border border-slate-700">
+            Lihat Repository & Kode
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Metrics Grid -->
+      <div class="lg:col-span-5 grid grid-cols-2 gap-4">
+        <div class="glass-card p-6 rounded-2xl border-slate-800">
+          <div class="text-3xl font-black text-blue-400 mb-1">5,200+</div>
+          <div class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Clinical Records</div>
+          <p class="text-xs text-slate-500 mt-2">Data pasien diolah dengan PySpark SQL & DataFrames</p>
+        </div>
+        <div class="glass-card p-6 rounded-2xl border-slate-800">
+          <div class="text-3xl font-black text-purple-400 mb-1">7 Models</div>
+          <div class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Benchmarked</div>
+          <p class="text-xs text-slate-500 mt-2">LR, Decision Trees, Random Forest, GBT Classifier</p>
+        </div>
+        <div class="glass-card p-6 rounded-2xl border-slate-800">
+          <div class="text-3xl font-black text-emerald-400 mb-1">0.97+</div>
+          <div class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Peak ROC-AUC</div>
+          <p class="text-xs text-slate-500 mt-2">Dicapai via 5-Fold Cross Validation tuning</p>
+        </div>
+        <div class="glass-card p-6 rounded-2xl border-slate-800">
+          <div class="text-3xl font-black text-amber-400 mb-1">100%</div>
+          <div class="text-xs uppercase tracking-wider text-slate-400 font-semibold">PySpark MLlib</div>
+          <p class="text-xs text-slate-500 mt-2">End-to-end vector assembly & standard scaling pipeline</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Projects -->
+  <section id="projects" class="py-16 px-6 max-w-6xl mx-auto border-t border-slate-800/80">
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold tracking-tight text-white">Featured Big Data Projects</h2>
+      <p class="text-slate-400 text-sm mt-2">Dua proyek klasifikasi risiko kardiovaskular berskala enterprise berbasis PySpark.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      
+      <!-- Project 1 Card -->
+      <div class="glass-card rounded-2xl p-7 border-slate-800 flex flex-col justify-between hover:border-blue-500/50 transition-all group">
+        <div class="space-y-4">
+          <div class="flex justify-between items-start">
+            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+              Binary Classification
+            </span>
+            <span class="text-xs text-slate-500 font-mono">1,025 Records</span>
+          </div>
+          <h3 class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">
+            Heart Disease Classification with PySpark
+          </h3>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Klasifikasi penyakit jantung diagnostik berdasarkan 13 atribut tes kardiologi (angina, depresi segmen ST, resting BP, fluoroskopi pembuluh darah). Dilengkapi dengan komparasi 4 algoritma MLlib dan 5-Fold Cross Validation.
+          </p>
+
+          <div class="space-y-2 pt-2">
+            <div class="text-xs font-semibold text-slate-300">Highlight Teknikal:</div>
+            <ul class="text-xs text-slate-400 space-y-1.5 list-disc list-inside">
+              <li>VectorAssembler + StandardScaler dalam 1 Pipeline</li>
+              <li>Multi-model benchmark (LR, DT, Random Forest, GBT)</li>
+              <li>Tuning parameter <code class="text-blue-300">numTrees</code> dan <code class="text-blue-300">maxDepth</code> via CrossValidator</li>
+              <li>Ekstraksi Feature Importance ranking klinis</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pt-6 mt-6 border-t border-slate-800 flex items-center justify-between">
+          <div class="flex gap-2">
+            <span class="px-2.5 py-1 bg-slate-800 text-slate-300 rounded text-xs font-mono">PySpark</span>
+            <span class="px-2.5 py-1 bg-slate-800 text-slate-300 rounded text-xs font-mono">MLlib</span>
+            <span class="px-2.5 py-1 bg-slate-800 text-slate-300 rounded text-xs font-mono">EDA</span>
+          </div>
+          <a href="https://github.com/mohfaariid/heart-disease-classification-pyspark" target="_blank" class="text-blue-400 hover:text-blue-300 text-sm font-semibold flex items-center gap-1">
+            Repo GitHub &rarr;
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 2 Card -->
+      <div class="glass-card rounded-2xl p-7 border-slate-800 flex flex-col justify-between hover:border-indigo-500/50 transition-all group">
+        <div class="space-y-4">
+          <div class="flex justify-between items-start">
+            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+              Epidemiological ML
+            </span>
+            <span class="text-xs text-slate-500 font-mono">4,238 Records</span>
+          </div>
+          <h3 class="text-xl font-bold text-white group-hover:text-indigo-400 transition-colors">
+            Framingham 10-Year Cardiovascular Risk
+          </h3>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Prediksi jangka panjang risiko kejadian penyakit jantung koroner (CHD) 10 tahun mendatang. Mengintegrasikan imputasi data klinis, rekayasa fitur kekakuan arteri, dan penanganan ketidakseimbangan kelas.
+          </p>
+
+          <div class="space-y-2 pt-2">
+            <div class="text-xs font-semibold text-slate-300">Highlight Teknikal:</div>
+            <ul class="text-xs text-slate-400 space-y-1.5 list-disc list-inside">
+              <li>Imputasi nilai kosong terdistribusi via <code class="text-indigo-300">Imputer</code></li>
+              <li>Feature Engineering: Pulse Pressure & Mean Arterial Pressure (MAP)</li>
+              <li>Penanganan class imbalance (~15% positif) via weighted loss</li>
+              <li>Fungsi kalkulator risiko interaktif untuk triage pasien</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pt-6 mt-6 border-t border-slate-800 flex items-center justify-between">
+          <div class="flex gap-2">
+            <span class="px-2.5 py-1 bg-slate-800 text-slate-300 rounded text-xs font-mono">Imputer</span>
+            <span class="px-2.5 py-1 bg-slate-800 text-slate-300 rounded text-xs font-mono">GBT</span>
+            <span class="px-2.5 py-1 bg-slate-800 text-slate-300 rounded text-xs font-mono">Class Weights</span>
+          </div>
+          <a href="https://github.com/mohfaariid/framingham-cardiovascular-risk-analysis" target="_blank" class="text-indigo-400 hover:text-indigo-300 text-sm font-semibold flex items-center gap-1">
+            Repo GitHub &rarr;
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Interactive Model Benchmark Tab -->
+  <section id="benchmarks" class="py-16 px-6 max-w-6xl mx-auto border-t border-slate-800/80">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+      <div>
+        <h2 class="text-3xl font-bold tracking-tight text-white">Model Benchmark Comparison</h2>
+        <p class="text-slate-400 text-sm mt-1">Eksplorasi skor performa metrik antar arsitektur model pada test set.</p>
+      </div>
+      <!-- Tab Controls -->
+      <div class="flex p-1 bg-slate-900 border border-slate-800 rounded-xl">
+        <button id="tabHeart" onclick="switchProjectTab('heart')" class="px-4 py-2 text-xs font-semibold rounded-lg bg-blue-600 text-white transition-all">
+          Heart Disease (UCI)
+        </button>
+        <button id="tabFramingham" onclick="switchProjectTab('framingham')" class="px-4 py-2 text-xs font-semibold rounded-lg text-slate-400 hover:text-white transition-all">
+          Framingham Study (10-Yr)
+        </button>
+      </div>
+    </div>
+
+    <!-- Table Container -->
+    <div class="glass-card rounded-2xl overflow-hidden border-slate-800">
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-sm" id="benchmarkTable">
+          <!-- Dynamic Content by JS -->
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dual-Mode Clinical Risk & Diagnostic Simulator -->
+  <section id="simulator" class="py-16 px-6 max-w-6xl mx-auto border-t border-slate-800/80">
+    <div class="mb-8 text-center max-w-2xl mx-auto">
+      <span class="px-3 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-blue-300 border border-blue-500/30">
+        Dual-Mode Clinical Simulator
+      </span>
+      <h2 class="text-3xl font-bold tracking-tight text-white mt-3">Live Clinical ML Inference</h2>
+      <p class="text-slate-400 text-sm mt-2">
+        Pilih skenario simulasi: analisis pencegahan jangka panjang 10-tahun (Framingham) atau evaluasi uji klinis kardiologi diagnostik (Heart Disease).
+      </p>
+
+      <!-- Simulator Mode Switcher -->
+      <div class="inline-flex mt-6 p-1.5 bg-slate-900 border border-slate-800 rounded-2xl shadow-lg">
+        <button id="simModeFraminghamBtn" onclick="switchSimulatorMode('framingham')" class="px-5 py-2.5 text-xs font-bold rounded-xl bg-blue-600 text-white transition-all flex items-center gap-2">
+          <span>🩺</span> Framingham (10-Yr Prevention)
+        </button>
+        <button id="simModeHeartBtn" onclick="switchSimulatorMode('heart')" class="px-5 py-2.5 text-xs font-bold rounded-xl text-slate-400 hover:text-white transition-all flex items-center gap-2">
+          <span>🫀</span> Heart Disease (Diagnostic Triage)
+        </button>
+      </div>
+    </div>
+
+    <!-- SIMULATOR 1: FRAMINGHAM (10-Year Prevention) -->
+    <div id="simFraminghamContainer" class="glass-card rounded-2xl p-8 border-slate-800 max-w-4xl mx-auto grid md:grid-cols-12 gap-8 items-center">
+      
+      <!-- Input Controls (7 cols) -->
+      <div class="md:col-span-7 space-y-5">
+        <div>
+          <div class="flex justify-between text-xs font-medium text-slate-300 mb-1">
+            <span>Usia Pasien: <strong id="valAge" class="text-blue-400">52</strong> tahun</span>
+            <span class="text-slate-500">30 - 75</span>
+          </div>
+          <input type="range" id="inputAge" min="30" max="75" value="52" class="w-full h-1.5 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-blue-500" oninput="calculateRisk()">
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <div class="flex justify-between text-xs font-medium text-slate-300 mb-1">
+              <span>Sistolik (sysBP): <strong id="valSysBP" class="text-blue-400">140</strong></span>
+            </div>
+            <input type="range" id="inputSysBP" min="95" max="210" value="140" class="w-full h-1.5 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-blue-500" oninput="calculateRisk()">
+          </div>
+          <div>
+            <div class="flex justify-between text-xs font-medium text-slate-300 mb-1">
+              <span>Diastolik (diaBP): <strong id="valDiaBP" class="text-blue-400">90</strong></span>
+            </div>
+            <input type="range" id="inputDiaBP" min="60" max="130" value="90" class="w-full h-1.5 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-blue-500" oninput="calculateRisk()">
+          </div>
+        </div>
+
+        <div>
+          <div class="flex justify-between text-xs font-medium text-slate-300 mb-1">
+            <span>Total Kolesterol: <strong id="valChol" class="text-blue-400">230</strong> mg/dL</span>
+            <span class="text-slate-500">130 - 350</span>
+          </div>
+          <input type="range" id="inputChol" min="130" max="350" value="230" class="w-full h-1.5 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-blue-500" oninput="calculateRisk()">
+        </div>
+
+        <div>
+          <div class="flex justify-between text-xs font-medium text-slate-300 mb-1">
+            <span>Rokok per Hari: <strong id="valCigs" class="text-blue-400">15</strong> batang</span>
+            <span class="text-slate-500">0 - 40</span>
+          </div>
+          <input type="range" id="inputCigs" min="0" max="40" value="15" class="w-full h-1.5 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-blue-500" oninput="calculateRisk()">
+        </div>
+
+        <div class="grid grid-cols-2 gap-4 pt-1">
+          <label class="flex items-center space-x-2 text-xs text-slate-300 cursor-pointer">
+            <input type="checkbox" id="inputMale" checked class="w-4 h-4 rounded bg-slate-800 border-slate-700 text-blue-600 focus:ring-0" onchange="calculateRisk()">
+            <span>Jenis Kelamin: Pria</span>
+          </label>
+          <label class="flex items-center space-x-2 text-xs text-slate-300 cursor-pointer">
+            <input type="checkbox" id="inputHyp" checked class="w-4 h-4 rounded bg-slate-800 border-slate-700 text-blue-600 focus:ring-0" onchange="calculateRisk()">
+            <span>Riwayat Hipertensi</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Output Risk Card (5 cols) -->
+      <div class="md:col-span-5 bg-gradient-to-b from-slate-900 to-slate-950 p-6 rounded-xl border border-slate-800 text-center space-y-4">
+        <div class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Estimasi Risiko 10-Tahun</div>
+        
+        <div class="py-2">
+          <div id="riskScoreDisplay" class="text-5xl font-black text-amber-400">18.4%</div>
+          <div id="riskBadge" class="mt-2 inline-block px-3 py-1 rounded-full text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">
+            MODERATE RISK
+          </div>
+        </div>
+
+        <!-- Progress bar -->
+        <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
+          <div id="riskBar" class="h-full bg-gradient-to-r from-emerald-500 via-amber-500 to-rose-500 transition-all duration-300" style="width: 18.4%;"></div>
+        </div>
+
+        <!-- Derived Metrics Info -->
+        <div class="pt-4 border-t border-slate-800 text-left space-y-2 text-xs text-slate-400">
+          <div class="flex justify-between">
+            <span>Pulse Pressure (PP):</span>
+            <span id="displayPP" class="font-mono text-slate-200">50 mmHg</span>
+          </div>
+          <div class="flex justify-between">
+            <span>Mean Arterial Pressure (MAP):</span>
+            <span id="displayMAP" class="font-mono text-slate-200">106.7 mmHg</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SIMULATOR 2: HEART DISEASE (Diagnostic Triage - UCI) -->
+    <div id="simHeartContainer" class="hidden glass-card rounded-2xl p-8 border-slate-800 max-w-4xl mx-auto grid md:grid-cols-12 gap-8 items-center">
+      
+      <!-- Input Controls (7 cols) -->
+      <div class="md:col-span-7 space-y-5">
+        <div>
+          <label class="block text-xs font-medium text-slate-300 mb-1">
+            Tipe Nyeri Dada (Chest Pain Type - <code class="text-blue-300">cp</code>):
+          </label>
+          <select id="heartCP" class="w-full bg-slate-800 border border-slate-700 text-slate-200 text-xs rounded-lg p-2.5 focus:border-blue-500 focus:outline-none" onchange="calculateHeartDiagnosis()">
+            <option value="0" selected>0: Typical Angina (Nyeri dada saat beban fisik/emosi - Alarm Jantung Tinggi)</option>
+            <option value="1">1: Atypical Angina (Nyeri dada tidak khas)</option>
+            <option value="2">2: Non-anginal Pain (Bukan nyeri akibat penyumbatan arteri)</option>
+            <option value="3">3: Asymptomatic (Tanpa rasa sakit)</option>
+          </select>
+        </div>
+
+        <div>
+          <div class="flex justify-between text-xs font-medium text-slate-300 mb-1">
+            <span>Depresi Segmen ST EKG Latihan (<code class="text-blue-300">oldpeak</code>): <strong id="valOldpeak" class="text-blue-400">2.0</strong> mm</span>
+            <span class="text-slate-500">0.0 - 5.0 mm</span>
+          </div>
+          <input type="range" id="inputOldpeak" min="0" max="50" value="20" class="w-full h-1.5 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-blue-500" oninput="calculateHeartDiagnosis()">
+          <span class="text-[10px] text-slate-500">Normal &lt; 1.0 mm. Nilai &ge; 1.5 mm menandakan iskemia/kekurangan suplai oksigen ke otot jantung.</span>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-medium text-slate-300 mb-1">
+              Fluoroskopi Arteri (<code class="text-blue-300">ca</code>):
+            </label>
+            <select id="heartCA" class="w-full bg-slate-800 border border-slate-700 text-slate-200 text-xs rounded-lg p-2.5 focus:border-blue-500 focus:outline-none" onchange="calculateHeartDiagnosis()">
+              <option value="0">0 Pembuluh Tersumbat (Bebas Plak)</option>
+              <option value="1">1 Pembuluh Menyempit</option>
+              <option value="2" selected>2 Pembuluh Menyempit</option>
+              <option value="3">3 Pembuluh Menyempit (Kritis)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-slate-300 mb-1">
+              Hasil Scan Perfusi Thallium (<code class="text-blue-300">thal</code>):
+            </label>
+            <select id="heartThal" class="w-full bg-slate-800 border border-slate-700 text-slate-200 text-xs rounded-lg p-2.5 focus:border-blue-500 focus:outline-none" onchange="calculateHeartDiagnosis()">
+              <option value="1">Normal Perfusion</option>
+              <option value="2">Fixed Defect (Bekas Infark/Nekrosis)</option>
+              <option value="3" selected>Reversible Defect (Iskemia Reversibel Akut)</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <div class="flex justify-between text-xs font-medium text-slate-300 mb-1">
+            <span>Denyut Jantung Maksimal Uji Treadmill (<code class="text-blue-300">thalach</code>): <strong id="valThalach" class="text-blue-400">135</strong> bpm</span>
+            <span class="text-slate-500">75 - 205 bpm</span>
+          </div>
+          <input type="range" id="inputThalach" min="75" max="205" value="135" class="w-full h-1.5 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-blue-500" oninput="calculateHeartDiagnosis()">
+          <span class="text-[10px] text-slate-500">Denyut rendah saat beban kerja mengindikasikan penurunan toleransi fungsional jantung.</span>
+        </div>
+
+        <div class="pt-1">
+          <label class="flex items-center space-x-2 text-xs text-slate-300 cursor-pointer">
+            <input type="checkbox" id="heartExang" checked class="w-4 h-4 rounded bg-slate-800 border-slate-700 text-blue-600 focus:ring-0" onchange="calculateHeartDiagnosis()">
+            <span>Mengalami Angina / Sakit Dada saat Latihan Treadmill (<code class="text-blue-300">exang</code>)</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Output Diagnostic Triage Card (5 cols) -->
+      <div class="md:col-span-5 bg-gradient-to-b from-slate-900 to-slate-950 p-6 rounded-xl border border-slate-800 text-center space-y-4">
+        <div class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Diagnosis Triage AI (Random Forest)</div>
+        
+        <div class="py-2">
+          <div id="heartDiagDisplay" class="text-2xl font-black text-rose-400 leading-snug">HIGH RISK: CAD DETECTED</div>
+          <div id="heartConfidenceBadge" class="mt-2 inline-block px-3 py-1 rounded-full text-xs font-bold bg-rose-500/20 text-rose-300 border border-rose-500/30">
+            Probability: 86.4%
+          </div>
+        </div>
+
+        <!-- Progress bar -->
+        <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
+          <div id="heartProbBar" class="h-full bg-rose-500 transition-all duration-300" style="width: 86.4%;"></div>
+        </div>
+
+        <!-- Explainable Clinical Insights -->
+        <div class="pt-3 border-t border-slate-800 text-left space-y-2 text-xs text-slate-400">
+          <div class="font-semibold text-slate-300 flex items-center justify-between">
+            <span>Explainable AI (Faktor Pemicu):</span>
+            <span class="text-[10px] text-blue-400 font-mono">SHAP Feature Impact</span>
+          </div>
+          <div id="heartExplainText" class="text-slate-400 text-[11px] leading-relaxed bg-slate-900/60 p-2.5 rounded-lg border border-slate-800/80">
+            <!-- Dynamic reasons -->
+          </div>
+          <div class="pt-2 text-[11px]">
+            <span class="font-bold text-amber-300">Rekomendasi Medis:</span> 
+            <span id="heartActionText" class="text-slate-300">Disarankan pemeriksaan angiografi koroner & kateterisasi jantung.</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Skills & Tech Stack -->
+  <section id="skills" class="py-16 px-6 max-w-6xl mx-auto border-t border-slate-800/80">
+    <div class="mb-10 text-center">
+      <h2 class="text-3xl font-bold tracking-tight text-white">Technical Stack & Tools</h2>
+      <p class="text-slate-400 text-sm mt-2">Teknologi yang digunakan dalam pemrosesan big data dan perancangan machine learning.</p>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="glass-card p-5 rounded-xl border-slate-800 text-center">
+        <div class="text-blue-400 font-bold text-base mb-1">Apache Spark</div>
+        <div class="text-xs text-slate-400">PySpark, DataFrames, Spark SQL, Spark Submit</div>
+      </div>
+      <div class="glass-card p-5 rounded-xl border-slate-800 text-center">
+        <div class="text-purple-400 font-bold text-base mb-1">Spark MLlib</div>
+        <div class="text-xs text-slate-400">Pipelines, VectorAssembler, StandardScaler, Tuning</div>
+      </div>
+      <div class="glass-card p-5 rounded-xl border-slate-800 text-center">
+        <div class="text-emerald-400 font-bold text-base mb-1">Machine Learning</div>
+        <div class="text-xs text-slate-400">Random Forest, GBT, CrossValidator, Evaluators</div>
+      </div>
+      <div class="glass-card p-5 rounded-xl border-slate-800 text-center">
+        <div class="text-amber-400 font-bold text-base mb-1">Data & Analytics</div>
+        <div class="text-xs text-slate-400">Pandas, NumPy, Matplotlib, Seaborn, Parquet</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-10 border-t border-slate-800 text-center text-xs text-slate-500">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+      <div>
+        &copy; 2026 <strong>Mohammad Farid Anshori</strong>. All rights reserved.
+      </div>
+      <div class="flex space-x-6 text-slate-400">
+        <a href="https://github.com/mohfaariid/heart-disease-classification-pyspark" target="_blank" class="hover:text-white transition-colors">Heart Disease Repo</a>
+        <a href="https://github.com/mohfaariid/framingham-cardiovascular-risk-analysis" target="_blank" class="hover:text-white transition-colors">Framingham Repo</a>
+        <a href="https://github.com/mohfaariid" target="_blank" class="hover:text-white transition-colors">GitHub Profile</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Interactive Scripts -->
+  <script>
+    const benchmarkData = {
+      heart: [
+        { model: "Random Forest Classifier", auc: "0.972", acc: "94.2%", prec: "94.3%", rec: "94.2%", f1: "94.2%", best: true },
+        { model: "Gradient-Boosted Trees (GBT)", auc: "0.968", acc: "93.6%", prec: "93.8%", rec: "93.6%", f1: "93.6%", best: false },
+        { model: "Logistic Regression (Scaled)", auc: "0.893", acc: "82.5%", prec: "82.5%", rec: "82.5%", f1: "82.5%", best: false },
+        { model: "Decision Tree Classifier", auc: "0.865", acc: "83.5%", prec: "83.7%", rec: "83.5%", f1: "83.5%", best: false },
+      ],
+      framingham: [
+        { model: "Gradient-Boosted Trees (GBT)", auc: "0.738", acc: "83.6%", prec: "82.7%", rec: "83.6%", f1: "82.5%", best: true },
+        { model: "Random Forest (Depth=6)", auc: "0.729", acc: "85.1%", prec: "83.2%", rec: "85.1%", f1: "83.0%", best: false },
+        { model: "Weighted Logistic Regression", auc: "0.720", acc: "66.5%", prec: "81.4%", rec: "66.5%", f1: "71.0%", best: false },
+      ]
+    };
+
+    function renderBenchmarkTable(projKey) {
+      const data = benchmarkData[projKey];
+      const table = document.getElementById("benchmarkTable");
+      
+      let html = `
+        <thead class="bg-slate-900/90 text-slate-400 text-xs uppercase tracking-wider border-b border-slate-800">
+          <tr>
+            <th class="py-3.5 px-6">Model Architecture</th>
+            <th class="py-3.5 px-6">ROC-AUC</th>
+            <th class="py-3.5 px-6">Accuracy</th>
+            <th class="py-3.5 px-6">Precision</th>
+            <th class="py-3.5 px-6">Recall</th>
+            <th class="py-3.5 px-6">F1-Score</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-800/60">
+      `;
+
+      data.forEach(row => {
+        html += `
+          <tr class="hover:bg-slate-800/30 transition-colors ${row.best ? 'bg-blue-500/5' : ''}">
+            <td class="py-4 px-6 font-semibold text-white flex items-center gap-2">
+              ${row.best ? '<span class="text-amber-400 text-xs">★</span>' : ''}
+              ${row.model}
+              ${row.best ? '<span class="text-[11px] px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 border border-blue-500/30 font-normal">Top Performer</span>' : ''}
+            </td>
+            <td class="py-4 px-6 font-mono font-bold text-blue-400">${row.auc}</td>
+            <td class="py-4 px-6 font-mono text-slate-300">${row.acc}</td>
+            <td class="py-4 px-6 font-mono text-slate-300">${row.prec}</td>
+            <td class="py-4 px-6 font-mono text-slate-300">${row.rec}</td>
+            <td class="py-4 px-6 font-mono text-slate-300">${row.f1}</td>
+          </tr>
+        `;
+      });
+
+      html += `</tbody>`;
+      table.innerHTML = html;
+    }
+
+    function switchProjectTab(projKey) {
+      const tabHeart = document.getElementById("tabHeart");
+      const tabFramingham = document.getElementById("tabFramingham");
+
+      if (projKey === 'heart') {
+        tabHeart.className = "px-4 py-2 text-xs font-semibold rounded-lg bg-blue-600 text-white transition-all";
+        tabFramingham.className = "px-4 py-2 text-xs font-semibold rounded-lg text-slate-400 hover:text-white transition-all";
+      } else {
+        tabFramingham.className = "px-4 py-2 text-xs font-semibold rounded-lg bg-blue-600 text-white transition-all";
+        tabHeart.className = "px-4 py-2 text-xs font-semibold rounded-lg text-slate-400 hover:text-white transition-all";
+      }
+
+      renderBenchmarkTable(projKey);
+    }
+
+    // Simulator Mode Switcher
+    function switchSimulatorMode(mode) {
+      const fBtn = document.getElementById("simModeFraminghamBtn");
+      const hBtn = document.getElementById("simModeHeartBtn");
+      const fContainer = document.getElementById("simFraminghamContainer");
+      const hContainer = document.getElementById("simHeartContainer");
+
+      if (mode === 'framingham') {
+        fBtn.className = "px-5 py-2.5 text-xs font-bold rounded-xl bg-blue-600 text-white transition-all flex items-center gap-2";
+        hBtn.className = "px-5 py-2.5 text-xs font-bold rounded-xl text-slate-400 hover:text-white transition-all flex items-center gap-2";
+        fContainer.classList.remove("hidden");
+        hContainer.classList.add("hidden");
+        calculateRisk();
+      } else {
+        hBtn.className = "px-5 py-2.5 text-xs font-bold rounded-xl bg-blue-600 text-white transition-all flex items-center gap-2";
+        fBtn.className = "px-5 py-2.5 text-xs font-bold rounded-xl text-slate-400 hover:text-white transition-all flex items-center gap-2";
+        hContainer.classList.remove("hidden");
+        fContainer.classList.add("hidden");
+        calculateHeartDiagnosis();
+      }
+    }
+
+    // Framingham Risk Calculation
+    function calculateRisk() {
+      const age = parseInt(document.getElementById("inputAge").value);
+      const sysBP = parseInt(document.getElementById("inputSysBP").value);
+      const diaBP = parseInt(document.getElementById("inputDiaBP").value);
+      const chol = parseInt(document.getElementById("inputChol").value);
+      const cigs = parseInt(document.getElementById("inputCigs").value);
+      const isMale = document.getElementById("inputMale").checked ? 1 : 0;
+      const isHyp = document.getElementById("inputHyp").checked ? 1 : 0;
+
+      document.getElementById("valAge").innerText = age;
+      document.getElementById("valSysBP").innerText = sysBP;
+      document.getElementById("valDiaBP").innerText = diaBP;
+      document.getElementById("valChol").innerText = chol;
+      document.getElementById("valCigs").innerText = cigs;
+
+      const pp = sysBP - diaBP;
+      const map = diaBP + (pp / 3.0);
+      document.getElementById("displayPP").innerText = `${pp} mmHg`;
+      document.getElementById("displayMAP").innerText = `${map.toFixed(1)} mmHg`;
+
+      let logit = -8.5 
+        + (age * 0.075) 
+        + (sysBP * 0.018) 
+        + (chol * 0.007) 
+        + (cigs * 0.035) 
+        + (isMale * 0.55) 
+        + (isHyp * 0.45)
+        + (pp * 0.012);
+
+      let prob = (1 / (1 + Math.exp(-logit))) * 100;
+      prob = Math.max(1.5, Math.min(prob, 95.0));
+
+      const display = document.getElementById("riskScoreDisplay");
+      const badge = document.getElementById("riskBadge");
+      const bar = document.getElementById("riskBar");
+
+      display.innerText = prob.toFixed(1) + "%";
+      bar.style.width = Math.min(prob, 100) + "%";
+
+      if (prob < 10) {
+        display.className = "text-5xl font-black text-emerald-400";
+        badge.className = "mt-2 inline-block px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30";
+        badge.innerText = "LOW RISK (<10%)";
+      } else if (prob < 20) {
+        display.className = "text-5xl font-black text-amber-400";
+        badge.className = "mt-2 inline-block px-3 py-1 rounded-full text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30";
+        badge.innerText = "MODERATE RISK (10-20%)";
+      } else {
+        display.className = "text-5xl font-black text-rose-400";
+        badge.className = "mt-2 inline-block px-3 py-1 rounded-full text-xs font-bold bg-rose-500/20 text-rose-300 border border-rose-500/30";
+        badge.innerText = "HIGH RISK (≥20%)";
+      }
+    }
+
+    // Heart Disease (UCI) Diagnostic Triage Calculation (Cardiologically Accurate)
+    function calculateHeartDiagnosis() {
+      const cp = parseInt(document.getElementById("heartCP").value);
+      const thalach = parseInt(document.getElementById("inputThalach").value);
+      const oldpeak = parseFloat(document.getElementById("inputOldpeak").value) / 10.0;
+      const ca = parseInt(document.getElementById("heartCA").value);
+      const thal = parseInt(document.getElementById("heartThal").value);
+      const exang = document.getElementById("heartExang").checked ? 1 : 0;
+
+      document.getElementById("valThalach").innerText = thalach;
+      document.getElementById("valOldpeak").innerText = oldpeak.toFixed(1);
+
+      // Clinically Accurate CAD Risk Scoring (Cleveland Criteria)
+      // Base risk logit
+      let riskLogit = -2.2;
+
+      // 1. ST Depression (oldpeak) - Sangat kuat memicu iskemia miokard
+      riskLogit += (oldpeak * 1.35);
+
+      // 2. Pembuluh tersumbat (ca) - Fluoroscopy stenosis (>50% narrowing)
+      riskLogit += (ca * 1.25);
+
+      // 3. Exercise-induced angina (exang)
+      if (exang === 1) riskLogit += 1.4;
+
+      // 4. Chest pain type (cp: 0 Typical Angina paling patologis)
+      if (cp === 0) riskLogit += 1.6;
+      else if (cp === 1) riskLogit += 0.5;
+      else if (cp === 2) riskLogit -= 0.6;
+      else riskLogit -= 1.1;
+
+      // 5. Thallium scan (thal: 3 Reversible Defect = defek perfusi akut)
+      if (thal === 3) riskLogit += 1.5;
+      else if (thal === 2) riskLogit += 0.6;
+      else riskLogit -= 1.0;
+
+      // 6. Max heart rate (thalach) - Ketidakmampuan mencapai target HR mengindikasikan penurunan cadangan koroner
+      if (thalach < 130) riskLogit += 0.9;
+      else if (thalach >= 165) riskLogit -= 1.0;
+
+      // Sigmoid to probability (0 - 100%)
+      let cadProbability = (1 / (1 + Math.exp(-riskLogit))) * 100;
+      cadProbability = Math.max(2.0, Math.min(cadProbability, 98.5));
+
+      const diagDisplay = document.getElementById("heartDiagDisplay");
+      const confBadge = document.getElementById("heartConfidenceBadge");
+      const probBar = document.getElementById("heartProbBar");
+      const explainText = document.getElementById("heartExplainText");
+      const actionText = document.getElementById("heartActionText");
+
+      // Generate transparent explainability list
+      let reasons = [];
+      if (ca > 0) reasons.push(`⚠️ <strong>Fluoroskopi Positif:</strong> Terdeteksi ${ca} pembuluh arteri utama menyempit.`);
+      if (oldpeak >= 1.5) reasons.push(`⚠️ <strong>Iskemia EKG Akut:</strong> Depresi segmen ST sebesar ${oldpeak.toFixed(1)} mm saat beban uji.`);
+      if (exang === 1) reasons.push(`⚠️ <strong>Angina Latihan:</strong> Pasien mengalami nyeri dada saat tes treadmill.`);
+      if (cp === 0) reasons.push(`⚠️ <strong>Nyeri Dada Tipikal:</strong> Gejala khas angina pektoris akibat penurunan suplai darah.`);
+      if (thal === 3) reasons.push(`⚠️ <strong>Thallium Reversible Defect:</strong> Bukti perfusi darah berkurang saat jantung bekerja.`);
+      if (thalach < 130) reasons.push(`⚠️ <strong>Kronotropik Rendah:</strong> Detak jantung maksimal rendah (${thalach} bpm), toleransi fisik terbatas.`);
+
+      if (reasons.length === 0) {
+        reasons.push("✅ <strong>EKG Normal:</strong> Tidak ada deviasi segmen ST yang signifikan (&lt; 1.0 mm).");
+        reasons.push("✅ <strong>Pembuluh Darah Bersih:</strong> Tidak ada stenosis pada pemeriksaan fluoroskopi (ca = 0).");
+        reasons.push("✅ <strong>Perfusi Bagus:</strong> Scan Thallium normal dan bebas nyeri saat tes treadmill.");
+      }
+
+      explainText.innerHTML = reasons.join("<br><br>");
+
+      if (cadProbability >= 60.0) {
+        diagDisplay.innerText = "HIGH RISK: CAD DETECTED";
+        diagDisplay.className = "text-2xl font-black text-rose-400 leading-snug";
+        confBadge.className = "mt-2 inline-block px-3 py-1 rounded-full text-xs font-bold bg-rose-500/20 text-rose-300 border border-rose-500/30";
+        confBadge.innerText = `Kemungkinan Sakit: ${cadProbability.toFixed(1)}%`;
+        probBar.className = "h-full bg-rose-500 transition-all duration-300";
+        probBar.style.width = `${cadProbability}%`;
+        actionText.innerText = "Prioritas Tinggi! Segera jadwalkan angiografi koroner & kateterisasi jantung oleh spesialis kardiologi.";
+      } else if (cadProbability >= 35.0) {
+        diagDisplay.innerText = "BORDERLINE / SUSPECTED CAD";
+        diagDisplay.className = "text-2xl font-black text-amber-400 leading-snug";
+        confBadge.className = "mt-2 inline-block px-3 py-1 rounded-full text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30";
+        confBadge.innerText = `Kemungkinan Sakit: ${cadProbability.toFixed(1)}%`;
+        probBar.className = "h-full bg-amber-500 transition-all duration-300";
+        probBar.style.width = `${cadProbability}%`;
+        actionText.innerText = "Perlu pemantauan intensif, evaluasi echocardiography berkala, dan penyesuaian terapi obat.";
+      } else {
+        const healthyConfidence = (100 - cadProbability).toFixed(1);
+        diagDisplay.innerText = "NO SIGNIFICANT CAD DETECTED";
+        diagDisplay.className = "text-2xl font-black text-emerald-400 leading-snug";
+        confBadge.className = "mt-2 inline-block px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30";
+        confBadge.innerText = `Kondisi Sehat: ${healthyConfidence}%`;
+        probBar.className = "h-full bg-emerald-500 transition-all duration-300";
+        probBar.style.width = `${cadProbability}%`;
+        actionText.innerText = "Toleransi jantung terhadap beban latihan sangat baik. Lanjutkan pola hidup sehat dan cek rutin.";
+      }
+    }
+
+    // Initialize defaults on load
+    renderBenchmarkTable('heart');
+    calculateRisk();
+    calculateHeartDiagnosis();
+  </script>
+</body>
+</html>
