@@ -313,14 +313,28 @@
           <div class="font-bold text-slate-300">Taste Profile Terdeteksi:</div>
           <div id="userTasteDesc">Suka film tempo cepat, eksplorasi dunia fiksi, dan alur pahlawan.</div>
         </div>
+
+        <!-- Feedback Loop Stats -->
+        <div class="p-3.5 bg-slate-900/50 rounded-xl border border-slate-800 flex items-center justify-between text-xs">
+          <div>
+            <div class="text-slate-400 text-[11px]">Film yang Sudah Ditonton:</div>
+            <div class="text-white font-bold"><span id="watchedCount" class="text-emerald-400">0</span> film ditandai</div>
+          </div>
+          <button onclick="resetWatched()" class="px-2.5 py-1 text-[11px] rounded bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition-colors">
+            Reset Riwayat
+          </button>
+        </div>
       </div>
 
       <!-- Output Recommendations List (7 cols) -->
       <div class="md:col-span-7 bg-gradient-to-b from-slate-900 to-slate-950 p-6 rounded-xl border border-slate-800 space-y-4">
         <div class="flex items-center justify-between pb-2 border-b border-slate-800">
           <div>
-            <div class="text-xs uppercase tracking-wider text-amber-400 font-bold">Top Personalized Recommendations</div>
-            <div class="text-[11px] text-slate-400">Hasil estimasi perkalian dot vektor laten <code class="text-blue-300">p_u^T · q_i</code></div>
+            <div class="text-xs uppercase tracking-wider text-amber-400 font-bold flex items-center gap-1.5">
+              <span>Top Personalized Recommendations</span>
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            </div>
+            <div class="text-[11px] text-slate-400">Klik tombol <strong>"Sudah Nonton"</strong> untuk memunculkan rekomendasi berikutnya!</div>
           </div>
           <span class="px-2.5 py-1 rounded bg-amber-500/10 text-amber-300 border border-amber-500/20 text-[11px] font-mono font-bold">
             ALS Model
@@ -330,6 +344,16 @@
         <!-- Dynamic Movies Container -->
         <div id="movieRecsList" class="space-y-2.5">
           <!-- Populated by JS -->
+        </div>
+
+        <!-- Watched History Section -->
+        <div id="watchedSection" class="pt-3 border-t border-slate-800/80 hidden">
+          <div class="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+            <span>✓ Riwayat Film yang Sudah Ditonton:</span>
+          </div>
+          <div id="watchedList" class="flex flex-wrap gap-1.5">
+            <!-- Badges of watched movies -->
+          </div>
         </div>
 
         <div class="pt-3 border-t border-slate-800 text-[11px] text-slate-400 flex items-center justify-between">
@@ -677,54 +701,82 @@
       }
     }
 
-    // Movie Recommender Simulation Data
+    // Movie Recommender Simulation Data (Extensive Pool)
     const movieDatabase = {
       1: {
         taste: "Penggemar berat Sci-Fi, Action, dan petualangan eksplorasi visual.",
         movies: [
-          { title: "The Matrix (1999)", genres: ["Action", "Sci-Fi"], rating: 4.89, match: "98% Match" },
-          { title: "Star Wars: Episode IV - A New Hope (1977)", genres: ["Action", "Adventure", "Sci-Fi"], rating: 4.82, match: "96% Match" },
-          { title: "Inception (2010)", genres: ["Action", "Sci-Fi", "Thriller"], rating: 4.78, match: "95% Match" },
-          { title: "Jurassic Park (1993)", genres: ["Action", "Adventure", "Sci-Fi"], rating: 4.65, match: "93% Match" },
-          { title: "Interstellar (2014)", genres: ["Sci-Fi", "Drama"], rating: 4.61, match: "92% Match" },
-          { title: "Terminator 2: Judgment Day (1991)", genres: ["Action", "Sci-Fi"], rating: 4.58, match: "91% Match" },
-          { title: "Blade Runner (1982)", genres: ["Action", "Sci-Fi", "Thriller"], rating: 4.52, match: "90% Match" },
+          { id: "m1", title: "The Matrix (1999)", genres: ["Action", "Sci-Fi"], rating: 4.89, match: "98% Match" },
+          { id: "m2", title: "Star Wars: Episode IV - A New Hope (1977)", genres: ["Action", "Adventure", "Sci-Fi"], rating: 4.82, match: "96% Match" },
+          { id: "m3", title: "Inception (2010)", genres: ["Action", "Sci-Fi", "Thriller"], rating: 4.78, match: "95% Match" },
+          { id: "m4", title: "Jurassic Park (1993)", genres: ["Action", "Adventure", "Sci-Fi"], rating: 4.65, match: "93% Match" },
+          { id: "m5", title: "Interstellar (2014)", genres: ["Sci-Fi", "Drama"], rating: 4.61, match: "92% Match" },
+          { id: "m6", title: "Terminator 2: Judgment Day (1991)", genres: ["Action", "Sci-Fi"], rating: 4.58, match: "91% Match" },
+          { id: "m7", title: "Blade Runner (1982)", genres: ["Action", "Sci-Fi", "Thriller"], rating: 4.52, match: "90% Match" },
+          { id: "m8", title: "Alien (1979)", genres: ["Horror", "Sci-Fi"], rating: 4.49, match: "89% Match" },
+          { id: "m9", title: "Avengers: Infinity War (2018)", genres: ["Action", "Adventure", "Sci-Fi"], rating: 4.45, match: "88% Match" },
+          { id: "m10", title: "Mad Max: Fury Road (2015)", genres: ["Action", "Adventure", "Sci-Fi"], rating: 4.41, match: "87% Match" },
         ]
       },
       42: {
         taste: "Menyukai drama narasi mendalam, film mafia/crime klasik, dan dialog kuat.",
         movies: [
-          { title: "The Shawshank Redemption (1994)", genres: ["Crime", "Drama"], rating: 4.92, match: "99% Match" },
-          { title: "The Godfather (1972)", genres: ["Crime", "Drama"], rating: 4.88, match: "97% Match" },
-          { title: "Pulp Fiction (1994)", genres: ["Comedy", "Crime", "Drama"], rating: 4.81, match: "96% Match" },
-          { title: "Fight Club (1999)", genres: ["Action", "Crime", "Drama"], rating: 4.74, match: "94% Match" },
-          { title: "Goodfellas (1990)", genres: ["Crime", "Drama"], rating: 4.69, match: "93% Match" },
-          { title: "12 Angry Men (1957)", genres: ["Drama"], rating: 4.62, match: "91% Match" },
+          { id: "m11", title: "The Shawshank Redemption (1994)", genres: ["Crime", "Drama"], rating: 4.92, match: "99% Match" },
+          { id: "m12", title: "The Godfather (1972)", genres: ["Crime", "Drama"], rating: 4.88, match: "97% Match" },
+          { id: "m13", title: "Pulp Fiction (1994)", genres: ["Comedy", "Crime", "Drama"], rating: 4.81, match: "96% Match" },
+          { id: "m14", title: "Fight Club (1999)", genres: ["Action", "Crime", "Drama"], rating: 4.74, match: "94% Match" },
+          { id: "m15", title: "Goodfellas (1990)", genres: ["Crime", "Drama"], rating: 4.69, match: "93% Match" },
+          { id: "m16", title: "12 Angry Men (1957)", genres: ["Drama"], rating: 4.62, match: "91% Match" },
+          { id: "m17", title: "The Departed (2006)", genres: ["Crime", "Drama", "Thriller"], rating: 4.58, match: "90% Match" },
+          { id: "m18", title: "Taxi Driver (1976)", genres: ["Crime", "Drama"], rating: 4.54, match: "89% Match" },
+          { id: "m19", title: "Scarface (1983)", genres: ["Action", "Crime", "Drama"], rating: 4.48, match: "88% Match" },
+          { id: "m20", title: "Casablanca (1942)", genres: ["Drama", "Romance"], rating: 4.43, match: "86% Match" },
         ]
       },
       150: {
         taste: "Pecinta film animasi keluarga, komedi ceria, dan petualangan ramah usia.",
         movies: [
-          { title: "Toy Story (1995)", genres: ["Adventure", "Animation", "Children", "Comedy"], rating: 4.86, match: "98% Match" },
-          { title: "The Lion King (1994)", genres: ["Adventure", "Animation", "Drama"], rating: 4.80, match: "96% Match" },
-          { title: "Finding Nemo (2003)", genres: ["Adventure", "Animation", "Comedy"], rating: 4.73, match: "95% Match" },
-          { title: "Monsters, Inc. (2001)", genres: ["Adventure", "Animation", "Comedy"], rating: 4.68, match: "93% Match" },
-          { title: "Aladdin (1992)", genres: ["Adventure", "Animation", "Children", "Comedy"], rating: 4.62, match: "92% Match" },
-          { title: "Spirited Away (2001)", genres: ["Animation", "Fantasy"], rating: 4.59, match: "91% Match" },
+          { id: "m21", title: "Toy Story (1995)", genres: ["Adventure", "Animation", "Children", "Comedy"], rating: 4.86, match: "98% Match" },
+          { id: "m22", title: "The Lion King (1994)", genres: ["Adventure", "Animation", "Drama"], rating: 4.80, match: "96% Match" },
+          { id: "m23", title: "Finding Nemo (2003)", genres: ["Adventure", "Animation", "Comedy"], rating: 4.73, match: "95% Match" },
+          { id: "m24", title: "Monsters, Inc. (2001)", genres: ["Adventure", "Animation", "Comedy"], rating: 4.68, match: "93% Match" },
+          { id: "m25", title: "Aladdin (1992)", genres: ["Adventure", "Animation", "Children", "Comedy"], rating: 4.62, match: "92% Match" },
+          { id: "m26", title: "Spirited Away (2001)", genres: ["Animation", "Fantasy"], rating: 4.59, match: "91% Match" },
+          { id: "m27", title: "Up (2009)", genres: ["Adventure", "Animation", "Comedy"], rating: 4.55, match: "90% Match" },
+          { id: "m28", title: "WALL·E (2008)", genres: ["Adventure", "Animation", "Sci-Fi"], rating: 4.51, match: "89% Match" },
+          { id: "m29", title: "Shrek (2001)", genres: ["Adventure", "Animation", "Comedy", "Fantasy"], rating: 4.47, match: "88% Match" },
+          { id: "m30", title: "Coco (2017)", genres: ["Adventure", "Animation", "Comedy", "Fantasy"], rating: 4.42, match: "87% Match" },
         ]
       },
       300: {
         taste: "Menyukai misteri psikologis yang menegangkan, plot twist, dan atmosfer gelap.",
         movies: [
-          { title: "The Silence of the Lambs (1991)", genres: ["Crime", "Thriller"], rating: 4.89, match: "98% Match" },
-          { title: "Se7en (1995)", genres: ["Crime", "Mystery", "Thriller"], rating: 4.83, match: "97% Match" },
-          { title: "Memento (2000)", genres: ["Mystery", "Thriller"], rating: 4.75, match: "95% Match" },
-          { title: "Shutter Island (2010)", genres: ["Drama", "Mystery", "Thriller"], rating: 4.68, match: "93% Match" },
-          { title: "The Prestige (2006)", genres: ["Drama", "Mystery", "Sci-Fi", "Thriller"], rating: 4.64, match: "92% Match" },
-          { title: "Zodiac (2007)", genres: ["Crime", "Drama", "Mystery", "Thriller"], rating: 4.57, match: "90% Match" },
+          { id: "m31", title: "The Silence of the Lambs (1991)", genres: ["Crime", "Thriller"], rating: 4.89, match: "98% Match" },
+          { id: "m32", title: "Se7en (1995)", genres: ["Crime", "Mystery", "Thriller"], rating: 4.83, match: "97% Match" },
+          { id: "m33", title: "Memento (2000)", genres: ["Mystery", "Thriller"], rating: 4.75, match: "95% Match" },
+          { id: "m34", title: "Shutter Island (2010)", genres: ["Drama", "Mystery", "Thriller"], rating: 4.68, match: "93% Match" },
+          { id: "m35", title: "The Prestige (2006)", genres: ["Drama", "Mystery", "Sci-Fi", "Thriller"], rating: 4.64, match: "92% Match" },
+          { id: "m36", title: "Zodiac (2007)", genres: ["Crime", "Drama", "Mystery", "Thriller"], rating: 4.57, match: "90% Match" },
+          { id: "m37", title: "Gone Girl (2014)", genres: ["Drama", "Mystery", "Thriller"], rating: 4.52, match: "89% Match" },
+          { id: "m38", title: "Prisoners (2013)", genres: ["Crime", "Drama", "Mystery", "Thriller"], rating: 4.48, match: "88% Match" },
+          { id: "m39", title: "Black Swan (2010)", genres: ["Drama", "Thriller"], rating: 4.44, match: "87% Match" },
+          { id: "m40", title: "Oldboy (2003)", genres: ["Action", "Drama", "Mystery", "Thriller"], rating: 4.40, match: "86% Match" },
         ]
       }
     };
+
+    // State for Watched Movies (Feedback Loop)
+    let watchedSet = new Set();
+
+    function markMovieAsWatched(movieTitle) {
+      watchedSet.add(movieTitle);
+      generateMovieRecs();
+    }
+
+    function resetWatched() {
+      watchedSet.clear();
+      generateMovieRecs();
+    }
 
     function generateMovieRecs() {
       const userId = document.getElementById("recUserId").value;
@@ -736,28 +788,50 @@
       const userProfile = movieDatabase[userId];
       document.getElementById("userTasteDesc").innerText = userProfile.taste;
 
-      let filtered = userProfile.movies.filter(m => {
+      // Filter out movies already marked as watched
+      let unwashedPool = userProfile.movies.filter(m => !watchedSet.has(m.title));
+
+      let filtered = unwashedPool.filter(m => {
         const starPass = m.rating >= minStars;
         const genrePass = (genre === 'ALL') || m.genres.includes(genre);
         return starPass && genrePass;
       });
 
       const listContainer = document.getElementById("movieRecsList");
+      const watchedCount = document.getElementById("watchedCount");
+      const watchedSection = document.getElementById("watchedSection");
+      const watchedList = document.getElementById("watchedList");
+
+      watchedCount.innerText = watchedSet.size;
+
+      // Render Watched Badges
+      if (watchedSet.size > 0) {
+        watchedSection.classList.remove("hidden");
+        watchedList.innerHTML = Array.from(watchedSet).map(title => `
+          <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">
+            <span>✓</span> ${title}
+          </span>
+        `).join('');
+      } else {
+        watchedSection.classList.add("hidden");
+      }
 
       if (filtered.length === 0) {
         listContainer.innerHTML = `
           <div class="text-center py-8 text-slate-500 text-xs">
-            Tidak ada film yang cocok dengan filter genre <strong>${genre}</strong> dan rating minimal <strong>${minStars} ★</strong>.<br>
-            Coba turunkan slider bintang atau ganti filter genre.
+            Semua film pada kriteria ini telah Anda tonton, atau tidak ada yang lolos rating minimal <strong>${minStars} ★</strong>.<br>
+            <button onclick="resetWatched()" class="mt-2 px-3 py-1 bg-amber-500/20 text-amber-300 rounded border border-amber-500/30 text-[11px]">Reset Riwayat Tontonan</button>
           </div>
         `;
         return;
       }
 
       let html = "";
+      // Display top 5 available recommendations
       filtered.slice(0, 5).forEach((m, idx) => {
+        const titleSafe = m.title.replace(/'/g, "\\'");
         html += `
-          <div class="flex items-center justify-between p-3 rounded-lg bg-slate-900/60 border border-slate-800/80 hover:border-amber-500/40 transition-all">
+          <div class="flex items-center justify-between p-3 rounded-lg bg-slate-900/60 border border-slate-800/80 hover:border-amber-500/40 transition-all group">
             <div class="flex items-center space-x-3">
               <span class="w-6 h-6 rounded-full bg-slate-800 text-amber-400 flex items-center justify-center font-bold text-xs">
                 ${idx + 1}
@@ -769,9 +843,16 @@
                 </div>
               </div>
             </div>
-            <div class="text-right">
-              <div class="text-amber-400 font-bold text-sm">${m.rating.toFixed(2)} ★</div>
-              <div class="text-[10px] text-emerald-400 font-mono">${m.match}</div>
+            <div class="flex items-center space-x-3">
+              <div class="text-right">
+                <div class="text-amber-400 font-bold text-sm">${m.rating.toFixed(2)} ★</div>
+                <div class="text-[10px] text-emerald-400 font-mono">${m.match}</div>
+              </div>
+              <button onclick="markMovieAsWatched('${titleSafe}')" 
+                class="px-2.5 py-1 rounded text-[11px] font-semibold bg-slate-800 hover:bg-emerald-600 hover:text-white text-slate-300 border border-slate-700 hover:border-emerald-500 transition-all flex items-center gap-1 shadow-sm"
+                title="Tandai sudah ditonton agar digantikan film rekomendasi berikutnya">
+                <span>✓</span> Sudah Nonton
+              </button>
             </div>
           </div>
         `;
