@@ -54,17 +54,17 @@
           Big Data & Machine Learning Engineer
         </div>
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
-          Mengubah Data Klinis Menjadi <span class="gradient-text">Prediksi Presisi</span> dengan PySpark.
+          Skalabilitas Big Data & <span class="gradient-text">Machine Learning Terdistribusi</span> dengan PySpark.
         </h1>
         <p class="text-slate-400 text-base md:text-lg leading-relaxed">
-          Halo, saya <strong>Mohammad Farid Anshori</strong>. Berfokus pada perancangan *distributed pipeline*, *epidemiological analysis*, dan *machine learning* berskala besar menggunakan ekosistem Apache Spark.
+          Halo, saya <strong>Mohammad Farid Anshori</strong>. Membangun pipeline analitik data skala besar, sistem rekomendasi terdistribusi (*Collaborative Filtering*), dan model *machine learning* presisi menggunakan ekosistem Apache Spark.
         </p>
         <div class="flex flex-wrap gap-4 pt-2">
           <a href="#simulator" class="px-5 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-medium text-sm transition-all shadow-lg shadow-blue-500/25 flex items-center gap-2">
             ⚡ Coba Dual-Mode Clinical Simulator
           </a>
           <a href="#projects" class="px-5 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium text-sm transition-all border border-slate-700">
-            Lihat Repository & Kode
+            Jelajahi 3 Proyek PySpark
           </a>
         </div>
       </div>
@@ -72,24 +72,24 @@
       <!-- Quick Metrics Grid -->
       <div class="lg:col-span-5 grid grid-cols-2 gap-4">
         <div class="glass-card p-6 rounded-2xl border-slate-800">
-          <div class="text-3xl font-black text-blue-400 mb-1">5,200+</div>
-          <div class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Clinical Records</div>
-          <p class="text-xs text-slate-500 mt-2">Data pasien diolah dengan PySpark SQL & DataFrames</p>
+          <div class="text-3xl font-black text-blue-400 mb-1">105,000+</div>
+          <div class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Total Records</div>
+          <p class="text-xs text-slate-500 mt-2">Ratings, transaksi, dan data klinis diproses via Spark SQL</p>
         </div>
         <div class="glass-card p-6 rounded-2xl border-slate-800">
-          <div class="text-3xl font-black text-purple-400 mb-1">7 Models</div>
-          <div class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Benchmarked</div>
-          <p class="text-xs text-slate-500 mt-2">LR, Decision Trees, Random Forest, GBT Classifier</p>
+          <div class="text-3xl font-black text-purple-400 mb-1">3 Paradigms</div>
+          <div class="text-xs uppercase tracking-wider text-slate-400 font-semibold">ML Archetypes</div>
+          <p class="text-xs text-slate-500 mt-2">Ensemble Classification, Epidemiological Risk, & Collaborative Filtering (ALS)</p>
         </div>
         <div class="glass-card p-6 rounded-2xl border-slate-800">
-          <div class="text-3xl font-black text-emerald-400 mb-1">0.97+</div>
-          <div class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Peak ROC-AUC</div>
-          <p class="text-xs text-slate-500 mt-2">Dicapai via 5-Fold Cross Validation tuning</p>
+          <div class="text-3xl font-black text-emerald-400 mb-1">0.87 RMSE</div>
+          <div class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Recommender ALS</div>
+          <p class="text-xs text-slate-500 mt-2">Akurasi tinggi pada matriks interaksi 98.3% sparse</p>
         </div>
         <div class="glass-card p-6 rounded-2xl border-slate-800">
           <div class="text-3xl font-black text-amber-400 mb-1">100%</div>
-          <div class="text-xs uppercase tracking-wider text-slate-400 font-semibold">PySpark MLlib</div>
-          <p class="text-xs text-slate-500 mt-2">End-to-end vector assembly & standard scaling pipeline</p>
+          <div class="text-xs uppercase tracking-wider text-slate-400 font-semibold">PySpark Native</div>
+          <p class="text-xs text-slate-500 mt-2">CrossValidator, ParamGridBuilder, & ML Pipelines</p>
         </div>
       </div>
     </div>
@@ -98,53 +98,84 @@
   <!-- Featured Projects -->
   <section id="projects" class="py-16 px-6 max-w-6xl mx-auto border-t border-slate-800/80">
     <div class="mb-12">
-      <h2 class="text-3xl font-bold tracking-tight text-white">Featured Big Data Projects</h2>
-      <p class="text-slate-400 text-sm mt-2">Dua proyek klasifikasi risiko kardiovaskular berskala enterprise berbasis PySpark.</p>
+      <h2 class="text-3xl font-bold tracking-tight text-white">Featured Big Data & Machine Learning Projects</h2>
+      <p class="text-slate-400 text-sm mt-2">Tiga implementasi distributed machine learning berskala industri menggunakan Apache Spark MLlib.</p>
     </div>
 
-    <div class="grid md:grid-cols-2 gap-8">
+    <div class="grid md:grid-cols-3 gap-6">
       
-      <!-- Project 1 Card -->
-      <div class="glass-card rounded-2xl p-7 border-slate-800 flex flex-col justify-between hover:border-blue-500/50 transition-all group">
+      <!-- Project 1: Recommender System (ALS) -->
+      <div class="glass-card rounded-2xl p-6 border-slate-800 flex flex-col justify-between hover:border-amber-500/50 transition-all group">
         <div class="space-y-4">
           <div class="flex justify-between items-start">
-            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-              Binary Classification
+            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/20">
+              Recommender System
             </span>
-            <span class="text-xs text-slate-500 font-mono">1,025 Records</span>
+            <span class="text-xs text-slate-500 font-mono">100K+ Ratings</span>
           </div>
-          <h3 class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">
-            Heart Disease Classification with PySpark
+          <h3 class="text-lg font-bold text-white group-hover:text-amber-400 transition-colors">
+            Movie Recommender System with PySpark ALS
           </h3>
-          <p class="text-slate-400 text-sm leading-relaxed">
-            Klasifikasi penyakit jantung diagnostik berdasarkan 13 atribut tes kardiologi (angina, depresi segmen ST, resting BP, fluoroskopi pembuluh darah). Dilengkapi dengan komparasi 4 algoritma MLlib dan 5-Fold Cross Validation.
+          <p class="text-slate-400 text-xs leading-relaxed">
+            Sistem rekomendasi film personal berbasis <em>Collaborative Filtering</em> dengan faktorisasi matriks <strong>Alternating Least Squares (ALS)</strong> pada dataset MovieLens. Mampu mengatasi matriks 98.3% <em>sparse</em> dan menghasilkan Top-10 film personal serta similar items.
           </p>
 
-          <div class="space-y-2 pt-2">
+          <div class="space-y-1.5 pt-2">
             <div class="text-xs font-semibold text-slate-300">Highlight Teknikal:</div>
-            <ul class="text-xs text-slate-400 space-y-1.5 list-disc list-inside">
-              <li>VectorAssembler + StandardScaler dalam 1 Pipeline</li>
-              <li>Multi-model benchmark (LR, DT, Random Forest, GBT)</li>
-              <li>Tuning parameter <code class="text-blue-300">numTrees</code> dan <code class="text-blue-300">maxDepth</code> via CrossValidator</li>
-              <li>Ekstraksi Feature Importance ranking klinis</li>
+            <ul class="text-xs text-slate-400 space-y-1 list-disc list-inside">
+              <li>Matrix Factorization & Latent Factor Discovery</li>
+              <li>Cold-Start strategy handling</li>
+              <li>3-Fold Cross-Validation tuning (rank & regParam)</li>
+              <li>Item-to-Item Cosine Similarity</li>
             </ul>
           </div>
         </div>
 
         <div class="pt-6 mt-6 border-t border-slate-800 flex items-center justify-between">
-          <div class="flex gap-2">
-            <span class="px-2.5 py-1 bg-slate-800 text-slate-300 rounded text-xs font-mono">PySpark</span>
-            <span class="px-2.5 py-1 bg-slate-800 text-slate-300 rounded text-xs font-mono">MLlib</span>
-            <span class="px-2.5 py-1 bg-slate-800 text-slate-300 rounded text-xs font-mono">EDA</span>
-          </div>
-          <a href="https://github.com/mohfaariid/heart-disease-classification-pyspark" target="_blank" class="text-blue-400 hover:text-blue-300 text-sm font-semibold flex items-center gap-1">
+          <span class="px-2 py-0.5 bg-slate-800 text-slate-300 rounded text-xs font-mono">ALS</span>
+          <a href="https://github.com/mohfaariid/movie-recommender-system-pyspark" target="_blank" class="text-amber-400 hover:text-amber-300 text-xs font-semibold flex items-center gap-1">
             Repo GitHub &rarr;
           </a>
         </div>
       </div>
 
-      <!-- Project 2 Card -->
-      <div class="glass-card rounded-2xl p-7 border-slate-800 flex flex-col justify-between hover:border-indigo-500/50 transition-all group">
+      <!-- Project 2: Heart Disease (Classification) -->
+      <div class="glass-card rounded-2xl p-6 border-slate-800 flex flex-col justify-between hover:border-blue-500/50 transition-all group">
+        <div class="space-y-4">
+          <div class="flex justify-between items-start">
+            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+              Diagnostic Triage
+            </span>
+            <span class="text-xs text-slate-500 font-mono">1,025 Records</span>
+          </div>
+          <h3 class="text-lg font-bold text-white group-hover:text-blue-400 transition-colors">
+            Heart Disease Classification with PySpark
+          </h3>
+          <p class="text-slate-400 text-xs leading-relaxed">
+            Klasifikasi penyakit jantung diagnostik berdasarkan 13 atribut tes kardiologi (angina, depresi segmen ST, resting BP, fluoroskopi pembuluh darah). Dilengkapi komparasi 4 algoritma MLlib dan 5-Fold Cross Validation.
+          </p>
+
+          <div class="space-y-1.5 pt-2">
+            <div class="text-xs font-semibold text-slate-300">Highlight Teknikal:</div>
+            <ul class="text-xs text-slate-400 space-y-1 list-disc list-inside">
+              <li>VectorAssembler + StandardScaler Pipeline</li>
+              <li>Multi-model benchmark (LR, DT, RF, GBT)</li>
+              <li>5-Fold CV hyperparameter tuning</li>
+              <li>Feature Importance ranking klinis</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pt-6 mt-6 border-t border-slate-800 flex items-center justify-between">
+          <span class="px-2 py-0.5 bg-slate-800 text-slate-300 rounded text-xs font-mono">Random Forest</span>
+          <a href="https://github.com/mohfaariid/heart-disease-classification-pyspark" target="_blank" class="text-blue-400 hover:text-blue-300 text-xs font-semibold flex items-center gap-1">
+            Repo GitHub &rarr;
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 3: Framingham Risk -->
+      <div class="glass-card rounded-2xl p-6 border-slate-800 flex flex-col justify-between hover:border-indigo-500/50 transition-all group">
         <div class="space-y-4">
           <div class="flex justify-between items-start">
             <span class="px-3 py-1 rounded-full text-xs font-semibold bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
@@ -152,31 +183,27 @@
             </span>
             <span class="text-xs text-slate-500 font-mono">4,238 Records</span>
           </div>
-          <h3 class="text-xl font-bold text-white group-hover:text-indigo-400 transition-colors">
+          <h3 class="text-lg font-bold text-white group-hover:text-indigo-400 transition-colors">
             Framingham 10-Year Cardiovascular Risk
           </h3>
-          <p class="text-slate-400 text-sm leading-relaxed">
-            Prediksi jangka panjang risiko kejadian penyakit jantung koroner (CHD) 10 tahun mendatang. Mengintegrasikan imputasi data klinis, rekayasa fitur kekakuan arteri, dan penanganan ketidakseimbangan kelas.
+          <p class="text-slate-400 text-xs leading-relaxed">
+            Prediksi jangka panjang risiko kejadian penyakit jantung koroner (CHD) 10 tahun mendatang. Mengintegrasikan imputasi data klinis otomatis, rekayasa fitur kekakuan arteri, dan penanganan ketidakseimbangan kelas.
           </p>
 
-          <div class="space-y-2 pt-2">
+          <div class="space-y-1.5 pt-2">
             <div class="text-xs font-semibold text-slate-300">Highlight Teknikal:</div>
-            <ul class="text-xs text-slate-400 space-y-1.5 list-disc list-inside">
+            <ul class="text-xs text-slate-400 space-y-1 list-disc list-inside">
               <li>Imputasi nilai kosong terdistribusi via <code class="text-indigo-300">Imputer</code></li>
-              <li>Feature Engineering: Pulse Pressure & Mean Arterial Pressure (MAP)</li>
-              <li>Penanganan class imbalance (~15% positif) via weighted loss</li>
-              <li>Fungsi kalkulator risiko interaktif untuk triage pasien</li>
+              <li>Pulse Pressure & Mean Arterial Pressure (MAP)</li>
+              <li>Inverse-frequency class weights balancing</li>
+              <li>Interactive risk calculation prototype</li>
             </ul>
           </div>
         </div>
 
         <div class="pt-6 mt-6 border-t border-slate-800 flex items-center justify-between">
-          <div class="flex gap-2">
-            <span class="px-2.5 py-1 bg-slate-800 text-slate-300 rounded text-xs font-mono">Imputer</span>
-            <span class="px-2.5 py-1 bg-slate-800 text-slate-300 rounded text-xs font-mono">GBT</span>
-            <span class="px-2.5 py-1 bg-slate-800 text-slate-300 rounded text-xs font-mono">Class Weights</span>
-          </div>
-          <a href="https://github.com/mohfaariid/framingham-cardiovascular-risk-analysis" target="_blank" class="text-indigo-400 hover:text-indigo-300 text-sm font-semibold flex items-center gap-1">
+          <span class="px-2 py-0.5 bg-slate-800 text-slate-300 rounded text-xs font-mono">GBT Classifier</span>
+          <a href="https://github.com/mohfaariid/framingham-cardiovascular-risk-analysis" target="_blank" class="text-indigo-400 hover:text-indigo-300 text-xs font-semibold flex items-center gap-1">
             Repo GitHub &rarr;
           </a>
         </div>
@@ -194,7 +221,10 @@
       </div>
       <!-- Tab Controls -->
       <div class="flex p-1 bg-slate-900 border border-slate-800 rounded-xl">
-        <button id="tabHeart" onclick="switchProjectTab('heart')" class="px-4 py-2 text-xs font-semibold rounded-lg bg-blue-600 text-white transition-all">
+        <button id="tabRecommender" onclick="switchProjectTab('recommender')" class="px-4 py-2 text-xs font-semibold rounded-lg bg-blue-600 text-white transition-all">
+          Movie Recommender (ALS)
+        </button>
+        <button id="tabHeart" onclick="switchProjectTab('heart')" class="px-4 py-2 text-xs font-semibold rounded-lg text-slate-400 hover:text-white transition-all">
           Heart Disease (UCI)
         </button>
         <button id="tabFramingham" onclick="switchProjectTab('framingham')" class="px-4 py-2 text-xs font-semibold rounded-lg text-slate-400 hover:text-white transition-all">
@@ -438,11 +468,11 @@
       </div>
       <div class="glass-card p-5 rounded-xl border-slate-800 text-center">
         <div class="text-purple-400 font-bold text-base mb-1">Spark MLlib</div>
-        <div class="text-xs text-slate-400">Pipelines, VectorAssembler, StandardScaler, Tuning</div>
+        <div class="text-xs text-slate-400">ALS Recommender, Pipelines, VectorAssembler, Tuning</div>
       </div>
       <div class="glass-card p-5 rounded-xl border-slate-800 text-center">
         <div class="text-emerald-400 font-bold text-base mb-1">Machine Learning</div>
-        <div class="text-xs text-slate-400">Random Forest, GBT, CrossValidator, Evaluators</div>
+        <div class="text-xs text-slate-400">Random Forest, GBT, CrossValidator, RegressionEvaluator</div>
       </div>
       <div class="glass-card p-5 rounded-xl border-slate-800 text-center">
         <div class="text-amber-400 font-bold text-base mb-1">Data & Analytics</div>
@@ -458,9 +488,10 @@
         &copy; 2026 <strong>Mohammad Farid Anshori</strong>. All rights reserved.
       </div>
       <div class="flex space-x-6 text-slate-400">
-        <a href="https://github.com/mohfaariid/heart-disease-classification-pyspark" target="_blank" class="hover:text-white transition-colors">Heart Disease Repo</a>
-        <a href="https://github.com/mohfaariid/framingham-cardiovascular-risk-analysis" target="_blank" class="hover:text-white transition-colors">Framingham Repo</a>
-        <a href="https://github.com/mohfaariid" target="_blank" class="hover:text-white transition-colors">GitHub Profile</a>
+        <a href="https://github.com/mohfaariid/movie-recommender-system-pyspark" target="_blank" class="hover:text-white transition-colors">MovieLens ALS</a>
+        <a href="https://github.com/mohfaariid/heart-disease-classification-pyspark" target="_blank" class="hover:text-white transition-colors">Heart Disease</a>
+        <a href="https://github.com/mohfaariid/framingham-cardiovascular-risk-analysis" target="_blank" class="hover:text-white transition-colors">Framingham</a>
+        <a href="https://github.com/mohfaariid" target="_blank" class="hover:text-white transition-colors">GitHub</a>
       </div>
     </div>
   </footer>
@@ -468,16 +499,20 @@
   <!-- Interactive Scripts -->
   <script>
     const benchmarkData = {
+      recommender: [
+        { model: "Tuned ALS (Rank=12, Reg=0.10)", metric1Name: "RMSE", metric1: "0.871", metric2Name: "MAE", metric2: "0.672", metric3Name: "Matrix Sparsity", metric3: "98.3%", metric4Name: "Ratings Processed", metric4: "100,836", best: true },
+        { model: "Baseline ALS (Rank=10, Reg=0.10)", metric1Name: "RMSE", metric1: "0.895", metric2Name: "MAE", metric2: "0.690", metric3Name: "Matrix Sparsity", metric3: "98.3%", metric4Name: "Ratings Processed", metric4: "100,836", best: false },
+      ],
       heart: [
-        { model: "Random Forest Classifier", auc: "0.972", acc: "94.2%", prec: "94.3%", rec: "94.2%", f1: "94.2%", best: true },
-        { model: "Gradient-Boosted Trees (GBT)", auc: "0.968", acc: "93.6%", prec: "93.8%", rec: "93.6%", f1: "93.6%", best: false },
-        { model: "Logistic Regression (Scaled)", auc: "0.893", acc: "82.5%", prec: "82.5%", rec: "82.5%", f1: "82.5%", best: false },
-        { model: "Decision Tree Classifier", auc: "0.865", acc: "83.5%", prec: "83.7%", rec: "83.5%", f1: "83.5%", best: false },
+        { model: "Random Forest Classifier", metric1Name: "ROC-AUC", metric1: "0.972", metric2Name: "Accuracy", metric2: "94.2%", metric3Name: "Precision", metric3: "94.3%", metric4Name: "F1-Score", metric4: "94.2%", best: true },
+        { model: "Gradient-Boosted Trees (GBT)", metric1Name: "ROC-AUC", metric1: "0.968", metric2Name: "Accuracy", metric2: "93.6%", metric3Name: "Precision", metric3: "93.8%", metric4Name: "F1-Score", metric4: "93.6%", best: false },
+        { model: "Logistic Regression (Scaled)", metric1Name: "ROC-AUC", metric1: "0.893", metric2Name: "Accuracy", metric2: "82.5%", metric3Name: "Precision", metric3: "82.5%", metric4Name: "F1-Score", metric4: "82.5%", best: false },
+        { model: "Decision Tree Classifier", metric1Name: "ROC-AUC", metric1: "0.865", metric2Name: "Accuracy", metric2: "83.5%", metric3Name: "Precision", metric3: "83.7%", metric4Name: "F1-Score", metric4: "83.5%", best: false },
       ],
       framingham: [
-        { model: "Gradient-Boosted Trees (GBT)", auc: "0.738", acc: "83.6%", prec: "82.7%", rec: "83.6%", f1: "82.5%", best: true },
-        { model: "Random Forest (Depth=6)", auc: "0.729", acc: "85.1%", prec: "83.2%", rec: "85.1%", f1: "83.0%", best: false },
-        { model: "Weighted Logistic Regression", auc: "0.720", acc: "66.5%", prec: "81.4%", rec: "66.5%", f1: "71.0%", best: false },
+        { model: "Gradient-Boosted Trees (GBT)", metric1Name: "ROC-AUC", metric1: "0.738", metric2Name: "Accuracy", metric2: "83.6%", metric3Name: "Recall", metric3: "83.6%", metric4Name: "F1-Score", metric4: "82.5%", best: true },
+        { model: "Random Forest (Depth=6)", metric1Name: "ROC-AUC", metric1: "0.729", metric2Name: "Accuracy", metric2: "85.1%", metric3Name: "Recall", metric3: "85.1%", metric4Name: "F1-Score", metric4: "83.0%", best: false },
+        { model: "Weighted Logistic Regression", metric1Name: "ROC-AUC", metric1: "0.720", metric2Name: "Accuracy", metric2: "66.5%", metric3Name: "Recall", metric3: "66.5%", metric4Name: "F1-Score", metric4: "71.0%", best: false },
       ]
     };
 
@@ -485,15 +520,15 @@
       const data = benchmarkData[projKey];
       const table = document.getElementById("benchmarkTable");
       
+      const sample = data[0];
       let html = `
         <thead class="bg-slate-900/90 text-slate-400 text-xs uppercase tracking-wider border-b border-slate-800">
           <tr>
-            <th class="py-3.5 px-6">Model Architecture</th>
-            <th class="py-3.5 px-6">ROC-AUC</th>
-            <th class="py-3.5 px-6">Accuracy</th>
-            <th class="py-3.5 px-6">Precision</th>
-            <th class="py-3.5 px-6">Recall</th>
-            <th class="py-3.5 px-6">F1-Score</th>
+            <th class="py-3.5 px-6">Model Configuration</th>
+            <th class="py-3.5 px-6">${sample.metric1Name}</th>
+            <th class="py-3.5 px-6">${sample.metric2Name}</th>
+            <th class="py-3.5 px-6">${sample.metric3Name}</th>
+            <th class="py-3.5 px-6">${sample.metric4Name}</th>
           </tr>
         </thead>
         <tbody class="divide-y divide-slate-800/60">
@@ -507,11 +542,10 @@
               ${row.model}
               ${row.best ? '<span class="text-[11px] px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 border border-blue-500/30 font-normal">Top Performer</span>' : ''}
             </td>
-            <td class="py-4 px-6 font-mono font-bold text-blue-400">${row.auc}</td>
-            <td class="py-4 px-6 font-mono text-slate-300">${row.acc}</td>
-            <td class="py-4 px-6 font-mono text-slate-300">${row.prec}</td>
-            <td class="py-4 px-6 font-mono text-slate-300">${row.rec}</td>
-            <td class="py-4 px-6 font-mono text-slate-300">${row.f1}</td>
+            <td class="py-4 px-6 font-mono font-bold text-blue-400">${row.metric1}</td>
+            <td class="py-4 px-6 font-mono text-slate-300">${row.metric2}</td>
+            <td class="py-4 px-6 font-mono text-slate-300">${row.metric3}</td>
+            <td class="py-4 px-6 font-mono text-slate-300">${row.metric4}</td>
           </tr>
         `;
       });
@@ -521,16 +555,19 @@
     }
 
     function switchProjectTab(projKey) {
-      const tabHeart = document.getElementById("tabHeart");
-      const tabFramingham = document.getElementById("tabFramingham");
+      const tabs = {
+        recommender: document.getElementById("tabRecommender"),
+        heart: document.getElementById("tabHeart"),
+        framingham: document.getElementById("tabFramingham")
+      };
 
-      if (projKey === 'heart') {
-        tabHeart.className = "px-4 py-2 text-xs font-semibold rounded-lg bg-blue-600 text-white transition-all";
-        tabFramingham.className = "px-4 py-2 text-xs font-semibold rounded-lg text-slate-400 hover:text-white transition-all";
-      } else {
-        tabFramingham.className = "px-4 py-2 text-xs font-semibold rounded-lg bg-blue-600 text-white transition-all";
-        tabHeart.className = "px-4 py-2 text-xs font-semibold rounded-lg text-slate-400 hover:text-white transition-all";
-      }
+      Object.keys(tabs).forEach(k => {
+        if (k === projKey) {
+          tabs[k].className = "px-4 py-2 text-xs font-semibold rounded-lg bg-blue-600 text-white transition-all";
+        } else {
+          tabs[k].className = "px-4 py-2 text-xs font-semibold rounded-lg text-slate-400 hover:text-white transition-all";
+        }
+      });
 
       renderBenchmarkTable(projKey);
     }
@@ -624,35 +661,23 @@
       document.getElementById("valThalach").innerText = thalach;
       document.getElementById("valOldpeak").innerText = oldpeak.toFixed(1);
 
-      // Clinically Accurate CAD Risk Scoring (Cleveland Criteria)
-      // Base risk logit
       let riskLogit = -2.2;
-
-      // 1. ST Depression (oldpeak) - Sangat kuat memicu iskemia miokard
       riskLogit += (oldpeak * 1.35);
-
-      // 2. Pembuluh tersumbat (ca) - Fluoroscopy stenosis (>50% narrowing)
       riskLogit += (ca * 1.25);
-
-      // 3. Exercise-induced angina (exang)
       if (exang === 1) riskLogit += 1.4;
 
-      // 4. Chest pain type (cp: 0 Typical Angina paling patologis)
       if (cp === 0) riskLogit += 1.6;
       else if (cp === 1) riskLogit += 0.5;
       else if (cp === 2) riskLogit -= 0.6;
       else riskLogit -= 1.1;
 
-      // 5. Thallium scan (thal: 3 Reversible Defect = defek perfusi akut)
       if (thal === 3) riskLogit += 1.5;
       else if (thal === 2) riskLogit += 0.6;
       else riskLogit -= 1.0;
 
-      // 6. Max heart rate (thalach) - Ketidakmampuan mencapai target HR mengindikasikan penurunan cadangan koroner
       if (thalach < 130) riskLogit += 0.9;
       else if (thalach >= 165) riskLogit -= 1.0;
 
-      // Sigmoid to probability (0 - 100%)
       let cadProbability = (1 / (1 + Math.exp(-riskLogit))) * 100;
       cadProbability = Math.max(2.0, Math.min(cadProbability, 98.5));
 
@@ -662,7 +687,6 @@
       const explainText = document.getElementById("heartExplainText");
       const actionText = document.getElementById("heartActionText");
 
-      // Generate transparent explainability list
       let reasons = [];
       if (ca > 0) reasons.push(`⚠️ <strong>Fluoroskopi Positif:</strong> Terdeteksi ${ca} pembuluh arteri utama menyempit.`);
       if (oldpeak >= 1.5) reasons.push(`⚠️ <strong>Iskemia EKG Akut:</strong> Depresi segmen ST sebesar ${oldpeak.toFixed(1)} mm saat beban uji.`);
@@ -708,7 +732,7 @@
     }
 
     // Initialize defaults on load
-    renderBenchmarkTable('heart');
+    renderBenchmarkTable('recommender');
     calculateRisk();
     calculateHeartDiagnosis();
   </script>
