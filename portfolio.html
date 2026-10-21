@@ -61,7 +61,7 @@
         </p>
         <div class="flex flex-wrap gap-4 pt-2">
           <a href="#simulator" class="px-5 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-medium text-sm transition-all shadow-lg shadow-blue-500/25 flex items-center gap-2">
-            ⚡ Coba Dual-Mode Clinical Simulator
+            ⚡ Coba Triple-Mode Live Simulator
           </a>
           <a href="#projects" class="px-5 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium text-sm transition-all border border-slate-700">
             Jelajahi 3 Proyek PySpark
@@ -243,30 +243,105 @@
     </div>
   </section>
 
-  <!-- Dual-Mode Clinical Risk & Diagnostic Simulator -->
+  <!-- Triple-Mode Interactive Simulator -->
   <section id="simulator" class="py-16 px-6 max-w-6xl mx-auto border-t border-slate-800/80">
     <div class="mb-8 text-center max-w-2xl mx-auto">
-      <span class="px-3 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-blue-300 border border-blue-500/30">
-        Dual-Mode Clinical Simulator
+      <span class="px-3 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-amber-500/20 text-blue-300 border border-blue-500/30">
+        Triple-Mode Interactive Simulator
       </span>
-      <h2 class="text-3xl font-bold tracking-tight text-white mt-3">Live Clinical ML Inference</h2>
+      <h2 class="text-3xl font-bold tracking-tight text-white mt-3">Live PySpark ML Inference</h2>
       <p class="text-slate-400 text-sm mt-2">
-        Pilih skenario simulasi: analisis pencegahan jangka panjang 10-tahun (Framingham) atau evaluasi uji klinis kardiologi diagnostik (Heart Disease).
+        Pilih skenario simulasi: Sistem Rekomendasi Film Personal (MovieLens ALS), Pencegahan Jangka Panjang 10-Tahun (Framingham), atau Evaluasi Uji Klinis Kardiologi (Heart Disease).
       </p>
 
-      <!-- Simulator Mode Switcher -->
-      <div class="inline-flex mt-6 p-1.5 bg-slate-900 border border-slate-800 rounded-2xl shadow-lg">
-        <button id="simModeFraminghamBtn" onclick="switchSimulatorMode('framingham')" class="px-5 py-2.5 text-xs font-bold rounded-xl bg-blue-600 text-white transition-all flex items-center gap-2">
+      <!-- Simulator Mode Switcher (3 Tabs) -->
+      <div class="inline-flex flex-wrap justify-center mt-6 p-1.5 bg-slate-900 border border-slate-800 rounded-2xl shadow-lg gap-1">
+        <button id="simModeMovieBtn" onclick="switchSimulatorMode('movie')" class="px-4 py-2.5 text-xs font-bold rounded-xl bg-blue-600 text-white transition-all flex items-center gap-2">
+          <span>🎬</span> Movie Recommender (ALS)
+        </button>
+        <button id="simModeFraminghamBtn" onclick="switchSimulatorMode('framingham')" class="px-4 py-2.5 text-xs font-bold rounded-xl text-slate-400 hover:text-white transition-all flex items-center gap-2">
           <span>🩺</span> Framingham (10-Yr Prevention)
         </button>
-        <button id="simModeHeartBtn" onclick="switchSimulatorMode('heart')" class="px-5 py-2.5 text-xs font-bold rounded-xl text-slate-400 hover:text-white transition-all flex items-center gap-2">
+        <button id="simModeHeartBtn" onclick="switchSimulatorMode('heart')" class="px-4 py-2.5 text-xs font-bold rounded-xl text-slate-400 hover:text-white transition-all flex items-center gap-2">
           <span>🫀</span> Heart Disease (Diagnostic Triage)
         </button>
       </div>
     </div>
 
-    <!-- SIMULATOR 1: FRAMINGHAM (10-Year Prevention) -->
-    <div id="simFraminghamContainer" class="glass-card rounded-2xl p-8 border-slate-800 max-w-4xl mx-auto grid md:grid-cols-12 gap-8 items-center">
+    <!-- SIMULATOR 1: MOVIE RECOMMENDER SYSTEM (ALS) -->
+    <div id="simMovieContainer" class="glass-card rounded-2xl p-8 border-slate-800 max-w-4xl mx-auto grid md:grid-cols-12 gap-8 items-start">
+      
+      <!-- Input Controls (5 cols) -->
+      <div class="md:col-span-5 space-y-5">
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1.5">
+            Pilih Persona / Profil User (<code class="text-amber-400">userId</code>):
+          </label>
+          <select id="recUserId" class="w-full bg-slate-800 border border-slate-700 text-slate-200 text-xs rounded-lg p-2.5 focus:border-amber-500 focus:outline-none" onchange="generateMovieRecs()">
+            <option value="1" selected>User #1: Action, Sci-Fi & Adventure Fan</option>
+            <option value="42">User #42: Crime, Drama & Classic Cinema</option>
+            <option value="150">User #150: Animation, Comedy & Family</option>
+            <option value="300">User #300: Thriller, Mystery & Psychological</option>
+          </select>
+          <span class="text-[11px] text-slate-500 mt-1 block">Setiap user merepresentasikan vektor preferensi laten yang berbeda di matriks ALS.</span>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1.5">
+            Filter Genre Spesifik:
+          </label>
+          <select id="recGenreFilter" class="w-full bg-slate-800 border border-slate-700 text-slate-200 text-xs rounded-lg p-2.5 focus:border-amber-500 focus:outline-none" onchange="generateMovieRecs()">
+            <option value="ALL" selected>Semua Genre (Rekomendasi Murni ALS)</option>
+            <option value="Action">Action</option>
+            <option value="Sci-Fi">Sci-Fi</option>
+            <option value="Drama">Drama</option>
+            <option value="Crime">Crime</option>
+            <option value="Animation">Animation</option>
+            <option value="Thriller">Thriller</option>
+          </select>
+        </div>
+
+        <div>
+          <div class="flex justify-between text-xs font-semibold text-slate-300 mb-1">
+            <span>Minimum Prediksi Bintang: <strong id="valMinStars" class="text-amber-400">4.2</strong> ★</span>
+            <span class="text-slate-500">3.5 - 4.8 ★</span>
+          </div>
+          <input type="range" id="inputMinStars" min="35" max="48" value="42" class="w-full h-1.5 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-amber-500" oninput="generateMovieRecs()">
+        </div>
+
+        <div class="p-3.5 bg-slate-900/80 rounded-xl border border-slate-800 text-[11px] text-slate-400 space-y-1">
+          <div class="font-bold text-slate-300">Taste Profile Terdeteksi:</div>
+          <div id="userTasteDesc">Suka film tempo cepat, eksplorasi dunia fiksi, dan alur pahlawan.</div>
+        </div>
+      </div>
+
+      <!-- Output Recommendations List (7 cols) -->
+      <div class="md:col-span-7 bg-gradient-to-b from-slate-900 to-slate-950 p-6 rounded-xl border border-slate-800 space-y-4">
+        <div class="flex items-center justify-between pb-2 border-b border-slate-800">
+          <div>
+            <div class="text-xs uppercase tracking-wider text-amber-400 font-bold">Top Personalized Recommendations</div>
+            <div class="text-[11px] text-slate-400">Hasil estimasi perkalian dot vektor laten <code class="text-blue-300">p_u^T · q_i</code></div>
+          </div>
+          <span class="px-2.5 py-1 rounded bg-amber-500/10 text-amber-300 border border-amber-500/20 text-[11px] font-mono font-bold">
+            ALS Model
+          </span>
+        </div>
+
+        <!-- Dynamic Movies Container -->
+        <div id="movieRecsList" class="space-y-2.5">
+          <!-- Populated by JS -->
+        </div>
+
+        <div class="pt-3 border-t border-slate-800 text-[11px] text-slate-400 flex items-center justify-between">
+          <span>Evaluasi Model: <strong>RMSE 0.871</strong> | Latent Rank: <strong>12</strong></span>
+          <span class="text-emerald-400 font-medium">Matrix Sparsity: 98.3%</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SIMULATOR 2: FRAMINGHAM (10-Year Prevention) -->
+    <div id="simFraminghamContainer" class="hidden glass-card rounded-2xl p-8 border-slate-800 max-w-4xl mx-auto grid md:grid-cols-12 gap-8 items-center">
       
       <!-- Input Controls (7 cols) -->
       <div class="md:col-span-7 space-y-5">
@@ -352,7 +427,7 @@
 
     </div>
 
-    <!-- SIMULATOR 2: HEART DISEASE (Diagnostic Triage - UCI) -->
+    <!-- SIMULATOR 3: HEART DISEASE (Diagnostic Triage - UCI) -->
     <div id="simHeartContainer" class="hidden glass-card rounded-2xl p-8 border-slate-800 max-w-4xl mx-auto grid md:grid-cols-12 gap-8 items-center">
       
       <!-- Input Controls (7 cols) -->
@@ -574,24 +649,135 @@
 
     // Simulator Mode Switcher
     function switchSimulatorMode(mode) {
+      const mBtn = document.getElementById("simModeMovieBtn");
       const fBtn = document.getElementById("simModeFraminghamBtn");
       const hBtn = document.getElementById("simModeHeartBtn");
+      const mContainer = document.getElementById("simMovieContainer");
       const fContainer = document.getElementById("simFraminghamContainer");
       const hContainer = document.getElementById("simHeartContainer");
 
-      if (mode === 'framingham') {
-        fBtn.className = "px-5 py-2.5 text-xs font-bold rounded-xl bg-blue-600 text-white transition-all flex items-center gap-2";
-        hBtn.className = "px-5 py-2.5 text-xs font-bold rounded-xl text-slate-400 hover:text-white transition-all flex items-center gap-2";
+      const buttons = [mBtn, fBtn, hBtn];
+      const containers = [mContainer, fContainer, hContainer];
+
+      buttons.forEach(b => b.className = "px-4 py-2.5 text-xs font-bold rounded-xl text-slate-400 hover:text-white transition-all flex items-center gap-2");
+      containers.forEach(c => c.classList.add("hidden"));
+
+      if (mode === 'movie') {
+        mBtn.className = "px-4 py-2.5 text-xs font-bold rounded-xl bg-blue-600 text-white transition-all flex items-center gap-2";
+        mContainer.classList.remove("hidden");
+        generateMovieRecs();
+      } else if (mode === 'framingham') {
+        fBtn.className = "px-4 py-2.5 text-xs font-bold rounded-xl bg-blue-600 text-white transition-all flex items-center gap-2";
         fContainer.classList.remove("hidden");
-        hContainer.classList.add("hidden");
         calculateRisk();
       } else {
-        hBtn.className = "px-5 py-2.5 text-xs font-bold rounded-xl bg-blue-600 text-white transition-all flex items-center gap-2";
-        fBtn.className = "px-5 py-2.5 text-xs font-bold rounded-xl text-slate-400 hover:text-white transition-all flex items-center gap-2";
+        hBtn.className = "px-4 py-2.5 text-xs font-bold rounded-xl bg-blue-600 text-white transition-all flex items-center gap-2";
         hContainer.classList.remove("hidden");
-        fContainer.classList.add("hidden");
         calculateHeartDiagnosis();
       }
+    }
+
+    // Movie Recommender Simulation Data
+    const movieDatabase = {
+      1: {
+        taste: "Penggemar berat Sci-Fi, Action, dan petualangan eksplorasi visual.",
+        movies: [
+          { title: "The Matrix (1999)", genres: ["Action", "Sci-Fi"], rating: 4.89, match: "98% Match" },
+          { title: "Star Wars: Episode IV - A New Hope (1977)", genres: ["Action", "Adventure", "Sci-Fi"], rating: 4.82, match: "96% Match" },
+          { title: "Inception (2010)", genres: ["Action", "Sci-Fi", "Thriller"], rating: 4.78, match: "95% Match" },
+          { title: "Jurassic Park (1993)", genres: ["Action", "Adventure", "Sci-Fi"], rating: 4.65, match: "93% Match" },
+          { title: "Interstellar (2014)", genres: ["Sci-Fi", "Drama"], rating: 4.61, match: "92% Match" },
+          { title: "Terminator 2: Judgment Day (1991)", genres: ["Action", "Sci-Fi"], rating: 4.58, match: "91% Match" },
+          { title: "Blade Runner (1982)", genres: ["Action", "Sci-Fi", "Thriller"], rating: 4.52, match: "90% Match" },
+        ]
+      },
+      42: {
+        taste: "Menyukai drama narasi mendalam, film mafia/crime klasik, dan dialog kuat.",
+        movies: [
+          { title: "The Shawshank Redemption (1994)", genres: ["Crime", "Drama"], rating: 4.92, match: "99% Match" },
+          { title: "The Godfather (1972)", genres: ["Crime", "Drama"], rating: 4.88, match: "97% Match" },
+          { title: "Pulp Fiction (1994)", genres: ["Comedy", "Crime", "Drama"], rating: 4.81, match: "96% Match" },
+          { title: "Fight Club (1999)", genres: ["Action", "Crime", "Drama"], rating: 4.74, match: "94% Match" },
+          { title: "Goodfellas (1990)", genres: ["Crime", "Drama"], rating: 4.69, match: "93% Match" },
+          { title: "12 Angry Men (1957)", genres: ["Drama"], rating: 4.62, match: "91% Match" },
+        ]
+      },
+      150: {
+        taste: "Pecinta film animasi keluarga, komedi ceria, dan petualangan ramah usia.",
+        movies: [
+          { title: "Toy Story (1995)", genres: ["Adventure", "Animation", "Children", "Comedy"], rating: 4.86, match: "98% Match" },
+          { title: "The Lion King (1994)", genres: ["Adventure", "Animation", "Drama"], rating: 4.80, match: "96% Match" },
+          { title: "Finding Nemo (2003)", genres: ["Adventure", "Animation", "Comedy"], rating: 4.73, match: "95% Match" },
+          { title: "Monsters, Inc. (2001)", genres: ["Adventure", "Animation", "Comedy"], rating: 4.68, match: "93% Match" },
+          { title: "Aladdin (1992)", genres: ["Adventure", "Animation", "Children", "Comedy"], rating: 4.62, match: "92% Match" },
+          { title: "Spirited Away (2001)", genres: ["Animation", "Fantasy"], rating: 4.59, match: "91% Match" },
+        ]
+      },
+      300: {
+        taste: "Menyukai misteri psikologis yang menegangkan, plot twist, dan atmosfer gelap.",
+        movies: [
+          { title: "The Silence of the Lambs (1991)", genres: ["Crime", "Thriller"], rating: 4.89, match: "98% Match" },
+          { title: "Se7en (1995)", genres: ["Crime", "Mystery", "Thriller"], rating: 4.83, match: "97% Match" },
+          { title: "Memento (2000)", genres: ["Mystery", "Thriller"], rating: 4.75, match: "95% Match" },
+          { title: "Shutter Island (2010)", genres: ["Drama", "Mystery", "Thriller"], rating: 4.68, match: "93% Match" },
+          { title: "The Prestige (2006)", genres: ["Drama", "Mystery", "Sci-Fi", "Thriller"], rating: 4.64, match: "92% Match" },
+          { title: "Zodiac (2007)", genres: ["Crime", "Drama", "Mystery", "Thriller"], rating: 4.57, match: "90% Match" },
+        ]
+      }
+    };
+
+    function generateMovieRecs() {
+      const userId = document.getElementById("recUserId").value;
+      const genre = document.getElementById("recGenreFilter").value;
+      const minStars = parseFloat(document.getElementById("inputMinStars").value) / 10.0;
+
+      document.getElementById("valMinStars").innerText = minStars.toFixed(1);
+
+      const userProfile = movieDatabase[userId];
+      document.getElementById("userTasteDesc").innerText = userProfile.taste;
+
+      let filtered = userProfile.movies.filter(m => {
+        const starPass = m.rating >= minStars;
+        const genrePass = (genre === 'ALL') || m.genres.includes(genre);
+        return starPass && genrePass;
+      });
+
+      const listContainer = document.getElementById("movieRecsList");
+
+      if (filtered.length === 0) {
+        listContainer.innerHTML = `
+          <div class="text-center py-8 text-slate-500 text-xs">
+            Tidak ada film yang cocok dengan filter genre <strong>${genre}</strong> dan rating minimal <strong>${minStars} ★</strong>.<br>
+            Coba turunkan slider bintang atau ganti filter genre.
+          </div>
+        `;
+        return;
+      }
+
+      let html = "";
+      filtered.slice(0, 5).forEach((m, idx) => {
+        html += `
+          <div class="flex items-center justify-between p-3 rounded-lg bg-slate-900/60 border border-slate-800/80 hover:border-amber-500/40 transition-all">
+            <div class="flex items-center space-x-3">
+              <span class="w-6 h-6 rounded-full bg-slate-800 text-amber-400 flex items-center justify-center font-bold text-xs">
+                ${idx + 1}
+              </span>
+              <div>
+                <div class="text-xs font-bold text-white">${m.title}</div>
+                <div class="flex gap-1.5 mt-1">
+                  ${m.genres.map(g => `<span class="px-1.5 py-0.5 rounded text-[10px] bg-slate-800 text-slate-300 font-mono">${g}</span>`).join('')}
+                </div>
+              </div>
+            </div>
+            <div class="text-right">
+              <div class="text-amber-400 font-bold text-sm">${m.rating.toFixed(2)} ★</div>
+              <div class="text-[10px] text-emerald-400 font-mono">${m.match}</div>
+            </div>
+          </div>
+        `;
+      });
+
+      listContainer.innerHTML = html;
     }
 
     // Framingham Risk Calculation
@@ -735,6 +921,7 @@
     renderBenchmarkTable('recommender');
     calculateRisk();
     calculateHeartDiagnosis();
+    generateMovieRecs();
   </script>
 </body>
 </html>
